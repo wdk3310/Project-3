@@ -7,22 +7,16 @@ import os
 os.system('clear')
 import xarray as xr
 
-# Wczytaj dane NetCDF
 ds = xr.open_dataset(r"C:\Data\gistemp250_GHCNv4.nc")
 
-# Pobierz punkt dla Krakowa (50N, 20E)
 krakow = ds['tempanomaly'].sel(lat=50.0, lon=20.0, method='nearest')
 
-# Konwertuj do DataFrame z czasem jako float (rok + miesiąc)
 df = krakow.to_dataframe().reset_index()
 df['Year'] = pd.to_datetime(df['time']).dt.year + (pd.to_datetime(df['time']).dt.month - 1) / 12
 
-# Wstaw dane do zmiennych jak w oryginalnym kodzie
 x = df['Year']
 y = df['tempanomaly']
 
-
- 
 plt.plot(x, y, label='Data', color='lightgrey')
 plt.xlabel('Year')
 plt.ylabel('Temperature Anomaly (°C)')
