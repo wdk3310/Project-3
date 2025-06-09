@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{hyperref}
+
+\title{Global Warming Through Neural Lenses: Comparing AI and Least Squares Modeling on NASA Climate Dataset}
+\author{Michał Krzyżak, Wojciech Kędzior, Hubert Kosman}
+\date{June 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Short Description}
+\par{
+Our project will explore global temperature trends using actual NASA’s climate data, applying both neural network regression and the classical least squares method. By comparing these two approaches, we aim to understand how modern AI models interpret and fit long-term global warming patterns through the lens of deep learning. \\
+\\ \href{https://climate.nasa.gov/vital-signs/global-temperature/?intent=121}{Dataset link}
+
+}
+
+\section{Overview of the existing solutions to this problem - literature review}
+\subsection{Machine Learning Approach to Global and Hemispheres Mean Temperature Anomalies Predictions with Artificial Neural Networks - Michał}
+\par{
+\href{https://www.researchgate.net/publication/366567794_Machine_Learning_Approach_to_Global_and_Hemispheres_Mean_Temperature_Anomalies_Predictions_with_Artificial_Neural_Networks_ANNs}{Article link}
+\\
+Recent studies (e.g. Yasmeen \& Khalid, 2022) focused on forecasting monthly temperature anomalies using data from NASA’s GISS (1880–2020). The data set includes global, Northern, and Southern Hemisphere temperature anomalies.}
+\subsubsection*{Their approach:}
+\begin{enumerate}
+\item Applied Artificial Neural Networks:
+\begin{enumerate}
+\item NNAR (Neural Network Auto Regression)
+\item MLP (Multilayer Perceptron)
+
+\end{enumerate}
+\item Compared those models with:
+\begin{enumerate}
+
+\item ARIMA/SARIMA
+\item ETS (Exponential Smoothing State Space)
+\item Random Walk with Drift
+\end{enumerate} 
+\end{enumerate}
+
+\subsubsection*{Their key findings:}
+\begin{enumerate}
+\item ANN models outperformed traditional statistical models in terms of forecast accuracy (lower RMSE, MAE, and MAPE).
+\item ANN models captured non-linear relationships and seasonal patterns more effectively.
+\end{enumerate}
+\subsubsection*{What has not been tested yet:}
+\begin{enumerate}
+    
+\item Least Squares Regression (LSR) as a baseline has not been directly compared with ANN models for the same dataset. 
+
+\item No use of modern deep learning frameworks (like PyTorch or TensorFlow).
+looking at lab 4 at our classes, we could for example add to the project :
+\begin{enumerate}
+\item Linear Regression using Gradient Descent as a base
+\item Two-layer Neural Network from Scratch (NumPy)
+\item Object-Oriented NumPy MLP
+\item PyTorch Implementation
+
+\end{enumerate}
+\end{enumerate}
+
+\subsection{Global Temperature Prediction by Convolutional Neural Network (CNN) - Wojciech}
+\href{https://ejaset.com/index.php/journal/article/view/177/139}{Article Link}
+\par{
+In the article "Global Temperature Prediction by Convolutional Neural Network (CNN)" the authors use, as the title suggests, a convolutional neural network. They work with the same dataset we plan to use — annual climate data from 1880 to 2023, collected by NASA. For evaluation, they use Mean Absolute Error (MAE), Root Mean Square Error (RMSE), and the Coefficient of Determination (R²). After testing, the MAE shows an average deviation of 0.0836 from the true values. The R² score indicates that the model explains 92.92% of the variance in the training data.
+}
+\subsection{Predicting future global temperature and greenhouse gas emissions via LSTM model - Hubert}
+\href{https://www.researchgate.net/publication/376555184_Predicting_future_global_temperature_and_greenhouse_gas_emissions_via_LSTM_model}{Article Link}
+\par{
+In the article “Predicting future global temperature and greenhouse gas emissions via LSTM model”, by Ahmad Hamdanet al., the authors used the LSTM(long short-term method) method of machine learning, which emphasises the most recent changes in value of the dataset, forgetting the oldest data as it analyses the chart. It is based on three gates, the input, output, and forget gate. Then the model classifies the data in the forget gate with a binary function, to be thrown in the bin if it does not meet the criteria. These authors analyzed two datasets, one by NASA and one by NOAA, using an ice core dating method that allowed them to gather a 50000-year-long data period. The NASA dataset has more impact because the period analysed in this set is recent and reflects human influence on the temperature. The authors did not use a least-square method to compare their ML results with those of LS. They mentioned a use of linear regression, or its derivatives, in other papers, namely the ARIMA method.
+}
+
+\end{document}
